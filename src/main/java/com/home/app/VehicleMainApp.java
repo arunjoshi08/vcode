@@ -3,9 +3,11 @@ package com.home.app;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 @SpringBootApplication
 @EnableAutoConfiguration
+@EnableJpaRepositories(basePackages="com.home.app.repository")
 public class VehicleMainApp {
 
 	public static void main(String[] args) {

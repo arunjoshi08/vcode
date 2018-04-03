@@ -38,6 +38,7 @@ public class Vehicle implements Serializable {
 	@Enumerated(EnumType.STRING)
 	private Company vehicleCompany;
 
+	@Id
 	@Column(name = "vehicle_number")
 	private String vechicleNumber;
 
