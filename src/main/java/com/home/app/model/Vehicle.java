@@ -26,6 +26,11 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 @EntityListeners(AuditingEntityListener.class)
 @JsonIgnoreProperties(value = { "createdAt", "updatedAt" }, allowGetters = true)
 public class Vehicle implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 6951274164977642417L;
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
@@ -38,7 +43,6 @@ public class Vehicle implements Serializable {
 	@Enumerated(EnumType.STRING)
 	private Company vehicleCompany;
 
-	@Id
 	@Column(name = "vehicle_number")
 	private String vechicleNumber;
 

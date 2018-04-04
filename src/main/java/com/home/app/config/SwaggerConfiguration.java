@@ -25,7 +25,7 @@ public class SwaggerConfiguration {
 
 	private ApiInfo apiInfo() {
 		return new ApiInfo("My REST API", "Some custom description of API.", "API TOS", "Terms of service",
-				new Contact("xxxxx", "www.example.com", "xxxxx@company.com"), "License of API", "API license URL",
+				new Contact("Arun Joshi", "www.example.com", "joshiarun08@gmail.com"), "License of API", "API license URL",
 				Collections.emptyList());
 	}
 
