@@ -3,6 +3,7 @@ package com.home.app.service;
 import java.util.HashSet;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -11,13 +12,16 @@ import com.home.app.repository.RoleRepository;
 import com.home.app.repository.UserRepository;
 
 @Service
-public class UserServiceImpl {
+public class UserService {
     @Autowired
     private UserRepository userRepository;
     @Autowired
     private RoleRepository roleRepository;
     @Autowired
     private BCryptPasswordEncoder bCryptPasswordEncoder;
+    
+    @Autowired
+    private SecurityService securityService;
 
     public void save(User user) {
         user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
@@ -25,7 +29,7 @@ public class UserServiceImpl {
         userRepository.save(user);
     }
 
-    public User findByUsername(String username) {
-        return userRepository.findByUsername(username);
+    public void login(String username,String password) {
+         securityService.autologin(username, password);
     }
 }
