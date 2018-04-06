@@ -3,15 +3,15 @@ package com.home.app.model;
 import java.io.Serializable;
 import java.util.Date;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EntityListeners;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -36,15 +36,14 @@ public class Vehicle implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
-	@OneToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "vehicle_type_id")
+	@ManyToOne (cascade=CascadeType.ALL)
 	private VehicleType vehicleType;
 	
-	@Column(name="passager_flag")
-	private Boolean passangeFlag;
+	@Column(name="passanger_vehicle")
+	private Boolean passangerVehicle;
 	
-	@Column(name="goods_flag")
-	private Boolean goodsFlag;
+	@Column(name="goods_vehicle")
+	private Boolean goodsVehicle;
 	
 
 	@Column(name="vehicleFrom")

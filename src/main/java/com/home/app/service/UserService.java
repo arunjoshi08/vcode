@@ -3,7 +3,6 @@ package com.home.app.service;
 import java.util.HashSet;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -29,7 +28,7 @@ public class UserService {
         userRepository.save(user);
     }
 
-    public void login(String username,String password) {
-         securityService.autologin(username, password);
+    public User findByUsername(String username) {
+        return userRepository.findByUsername(username);
     }
 }

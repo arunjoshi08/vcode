@@ -1,15 +1,16 @@
 package com.home.app.model;
 
 import java.io.Serializable;
+import java.util.HashSet;
+import java.util.Set;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -34,8 +35,8 @@ public class VehicleType implements Serializable {
 	@Column(name = "category")
 	private String category;
 
-	@OneToOne(mappedBy = "vehicleType", cascade = CascadeType.ALL, fetch = FetchType.LAZY, optional = false)
-	private Vehicle vehicle;
+	 @OneToMany(mappedBy="vehicleType",cascade=CascadeType.ALL)
+	 private Set<Vehicle> vehicle = new HashSet<Vehicle>();
 
 	public Long getId() {
 		return id;
@@ -69,12 +70,12 @@ public class VehicleType implements Serializable {
 		this.category = category;
 	}
 
-	public Vehicle getVehicle() {
+	public Set<Vehicle> getVehicle() {
 		return vehicle;
 	}
 
-	public void setVehicle(Vehicle vehicle) {
+	public void setVehicle(Set<Vehicle> vehicle) {
 		this.vehicle = vehicle;
-	}
+	}	
 
 }

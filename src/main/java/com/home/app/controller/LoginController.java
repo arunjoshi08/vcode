@@ -19,7 +19,7 @@ import io.swagger.annotations.ApiParam;
 @Controller
 @RequestMapping("user")
 public class LoginController {
-	
+
 	@Autowired
 	UserService userService;
 
@@ -29,34 +29,13 @@ public class LoginController {
 	@RequestMapping(value = "/login", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<String> login(@ApiParam(value = "username", required = true) @RequestParam String username,
 			@ApiParam(value = "username", required = true) @RequestParam String password) {
-		try{
-		// user login validation if required.
-		userService.login(username,password);
-		}catch(Exception e){
+		try {
+			// user login validation if required.
+			// userService.login(username,password);
+		} catch (Exception e) {
 			System.out.println(e);
 		}
-		return new ResponseEntity<String>("Success",HttpStatus.OK);
+		return new ResponseEntity<String>("Success", HttpStatus.OK);
 	}
-
-	/*
-	 * @ApiOperation(value =
-	 * "Save a vehicle's details which  passes from any tollbooth")
-	 * 
-	 * @RequestMapping(value = "/login", method = RequestMethod.POST, produces =
-	 * MediaType.APPLICATION_JSON_VALUE) public ResponseEntity<String>
-	 * login(@ApiParam(value = "vehicle request object", required =
-	 * true)@RequestBody VehicleRequest vehicleRequest){ // vehicle validation
-	 * if required. //return vehicleService.save(vehicleRequest); }
-	 * 
-	 * @ApiOperation(value =
-	 * "Save a vehicle's details which  passes from any tollbooth")
-	 * 
-	 * @RequestMapping(value = "/registration", method = RequestMethod.POST,
-	 * produces = MediaType.APPLICATION_JSON_VALUE) public
-	 * ResponseEntity<String> registration(@ApiParam(value =
-	 * "vehicle request object", required = true)@RequestBody VehicleRequest
-	 * vehicleRequest){ // vehicle validation if required. //return
-	 * vehicleService.save(vehicleRequest); }
-	 */
 
 }

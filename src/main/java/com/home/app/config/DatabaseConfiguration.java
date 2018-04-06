@@ -11,7 +11,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
 @Configuration
-public class VehicleConfiguration {
+public class DatabaseConfiguration {
 	
 	@ConfigurationProperties(prefix = "spring.datasource")
 	@Bean
@@ -20,11 +20,6 @@ public class VehicleConfiguration {
 	    return DataSourceBuilder
 	        .create()
 	        .build();
-	}
-	
-	@Bean
-	PasswordEncoder getEncoder() {
-	    return new BCryptPasswordEncoder();
 	}
 
 }
