@@ -7,10 +7,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
-import com.home.app.model.Company;
 import com.home.app.model.Vehicle;
 import com.home.app.model.VehicleRequest;
-import com.home.app.model.VehicleType;
 import com.home.app.repository.VehicleRepository;
 
 @Service
@@ -21,9 +19,9 @@ public class VehicleService {
 	
 	public ResponseEntity<String> save(VehicleRequest vReq){
 		Vehicle v = new Vehicle();
-		v.setType(VehicleType.valueOf(vReq.getVehicleType()));
-		v.setVechicleNumber(vReq.getVehicleNumber());
-		v.setVehicleCompany(Company.valueOf(vReq.getVehicleCompany()));
+		//v.setType(VehicleType.valueOf(vReq.getVehicleType()));
+		//v.setVechicleNumber(vReq.getVehicleNumber());
+		//v.setVehicleCompany(Company.valueOf(vReq.getVehicleCompany()));
 		v.setCreatedAt(new Date());
 		v.setUpdatedAt(new Date());
 		vehicleRepository.save(v);
